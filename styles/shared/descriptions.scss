@@ -1,0 +1,60 @@
+%description-12 {
+  font-size: 1.2rem;
+  font-weight: 300;
+
+  @include media('<phone') {
+    font-size: 3rem;
+  }
+}
+
+%description-12-about-label {
+  font-size: 1.2rem;
+  font-weight: 300;
+
+  @include media('<phone') {
+    font-size: 2.4rem;
+  }
+}
+
+%description-12-titles-label {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+%description-14 {
+  font-size: 1.4rem;
+  font-weight: 300;
+
+  @include media('<phone') {
+    font-size: 3rem;
+  }
+}
+
+%description-16 {
+  font-size: 1.6rem;
+  font-weight: 300;
+
+  @include media('<phone') {
+    font-size: 2.8rem;
+  }
+}
+
+%description-20 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+%description-20-titles-label {
+  font-size: 2rem;
+  font-weight: 300;
+
+  @include media('>phone') {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+}
+
+%description-28 {
+  font-size: 2.8rem;
+  font-weight: 300;
+}

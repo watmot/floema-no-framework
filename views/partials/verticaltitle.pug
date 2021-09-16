@@ -1,0 +1,5 @@
+.vertical__titles(class=`vertical__titles--${template}`)
+  each collection, index in collections
+    .vertical__titles__wrapper
+      .vertical__titles__label!=`${home.data.collection}<br>${Numbers(index)}`
+      .vertical__titles__title=collection.data.title

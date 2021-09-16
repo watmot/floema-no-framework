@@ -1,0 +1,51 @@
+.collections {
+  @extend %cover;
+  background-color: $color-quicksand;
+  color: $color-quarter-spanish-white;
+  overflow: hidden;
+
+  &:after {
+    @include media('<phone') {
+      background: linear-gradient(
+        -45deg,
+        rgba($color-quicksand, 1) 0%,
+        rgba($color-quicksand, 0) 100%
+      );
+      bottom: 0;
+      content: '';
+      height: 50vw;
+      right: 0;
+      position: absolute;
+      width: 50vw;
+      z-index: 1;
+    }
+  }
+}
+.collections__wrapper {
+  @extend %cover;
+}
+
+.collections__article {
+  bottom: 6rem;
+  left: 7rem;
+  width: 44rem;
+  max-height: 257px;
+  position: absolute;
+
+  &:not(:first-child) {
+    display: none;
+  }
+
+  @include media('<phone') {
+    display: none;
+  }
+}
+.collections__article__title {
+  @extend %title-60;
+  margin-bottom: 0rem;
+}
+
+.collections__article__description {
+  line-height: 2.5rem;
+  margin-top: 1.5rem;
+}

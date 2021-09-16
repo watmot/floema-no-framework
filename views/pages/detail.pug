@@ -1,0 +1,48 @@
+extends ../base.pug 
+
+block variables 
+  - var template = 'detail'
+
+block content 
+  .detail 
+    .detail__wrapper 
+
+      .detail__close__button__wrapper
+        a.detail__close__button(href='/collections')='Close'
+          svg.detail__close__button__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268 130")
+            path(stroke="currentColor" fill="none" d="M134,.5C207.73.5,267.5,29.38,267.5,65S207.73,129.5,134,129.5.5,100.62.5,65,60.27.5,134,.5Z")
+
+      figure.detail__media
+        img.detail__media__image(alt=product.data.image.alt src=product.data.image.url)
+
+      section.detail__information
+        p.detail__information__collection=`${product.data.collection.data.title} ${home.data.collection}`
+        h1.detail__information__title!=product.data.title
+        .detail__information__content
+
+          .detail__information__highlights
+            each highlight in product.data.highlight 
+              p.detail__information__highlight
+                svg.detail__information__highlight__icon
+                 svg.home__button__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40")
+                  if highlight.highlight_icon.toLowerCase() == 'arrow' 
+                    path(fill="none" stroke="currentColor" d="M20,.5A19.5,19.5,0,1,1,.5,20,19.5,19.5,0,0,1,20,.5Z")
+                    path(fill="none" stroke="currentColor" d="M14.84,25.46,26.16,14.14")
+                    path(fill="currentColor" d="M30.75,9.55l-.66,2.35,0,2.6-1.94-2.31L25.8,10.25l2.6,0Zm-20.5,20.5.66-2.35,0-2.6,1.94,2.31,2.31,1.94-2.6,0Z")
+                  else 
+                    path(fill="none" stroke="currentColor" d="M20,.5A19.5,19.5,0,1,1,.5,20,19.5,19.5,0,0,1,20,.5Z")
+                    path(fill="currentColor" d="M24.26,9.87l-2.75,8.6,8.72-2.64L22.07,20l8.15,4.26-8.71-2.82,2.82,8.91L20.06,22l-4.13,8.15,2.63-8.72L10,24.17,18.12,20,9.77,15.64l8.78,2.82L15.73,9.68,20.06,18Z")                    
+                span.detail__information__highlight__description!=highlight.highlight_description.replace(/\n/g, '<br>')
+
+          .detail__information__list
+            each item in product.data.information
+              p.detail__information__item
+                strong.detail__information__item__label!=item.information_label.replace(/\n/g, '<br>')
+                span.detail__information__item__description!=item.information_description.replace(/\n/g, '<br>')
+
+          a.detail__information__link(href=product.data.link_url.url)=product.data.link_text
+
+      .detail__close__button__wrapper
+        a.detail__close__button(href='/collections')='Close'
+          svg.detail__close__button__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268 130")
+            path(stroke="currentColor" fill="none" d="M134,.5C207.73.5,267.5,29.38,267.5,65S207.73,129.5,134,129.5.5,100.62.5,65,60.27.5,134,.5Z")

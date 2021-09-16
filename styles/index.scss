@@ -1,0 +1,29 @@
+@import './base/reset';
+
+@import './utils/functions';
+@import './utils/mixins';
+@import './utils/responsive';
+@import './utils/variables';
+@import './utils/vendors';
+
+@import './shared/titles';
+@import './shared/descriptions';
+
+@import './base/fonts';
+@import './base/base';
+
+@import './components/navigation';
+@import './components/preloader';
+@import './components/verticaltitle';
+
+@import './pages/about/about';
+@import './pages/about/content';
+@import './pages/about/gallery';
+@import './pages/about/highlight';
+
+@import './pages/detail/detail';
+
+@import './pages/home/home';
+
+@import './pages/collections/collections';
+@import './pages/collections/gallery';

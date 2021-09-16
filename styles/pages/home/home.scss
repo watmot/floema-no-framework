@@ -1,0 +1,78 @@
+.home {
+  @extend %cover;
+  background-color: $color-contessa;
+  color: $color-quarter-spanish-white;
+}
+
+.home__wrapper {
+  @extend %cover;
+  overflow: hidden;
+
+  &:before,
+  &:after {
+    content: '';
+    height: 24rem;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+
+    @include media('<phone') {
+      height: 32.5rem;
+    }
+  }
+
+  &:before {
+    background: linear-gradient(
+      to bottom,
+      rgba($color-contessa, 1) 0%,
+      rgba($color-contessa, 0) 100%
+    );
+    top: 0;
+  }
+
+  &:after {
+    background: linear-gradient(
+      to top,
+      rgba($color-contessa, 1) 0%,
+      rgba($color-contessa, 0) 100%
+    );
+    bottom: 0;
+  }
+}
+
+.home__gallery {
+  @extend %cover;
+}
+
+.home__gallery__media {
+  position: absolute;
+}
+
+.home__gallery__media__image {
+  height: 60rem;
+  width: 40rem;
+}
+
+.home__button {
+  align-items: center;
+  bottom: 5rem;
+  display: flex;
+  height: 6rem;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  width: 29rem;
+  z-index: 2;
+
+  @include media('<phone') {
+    width: 55rem;
+    height: 13rem;
+  }
+}
+
+.home__button__icon {
+  position: absolute;
+}

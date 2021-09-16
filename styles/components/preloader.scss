@@ -1,0 +1,25 @@
+.preloader {
+  @extend %cover;
+  @extend %center;
+
+  background-color: $color-contessa;
+  color: $color-quarter-spanish-white;
+  display: none;
+  text-align: center;
+  z-index: z('preloader');
+}
+
+.preloader__text {
+  @extend %title-53;
+
+  letter-spacing: -0.02rem;
+  line-height: 5.3rem;
+  max-width: 65.8rem;
+}
+
+.preloader__number {
+  @extend %description-14;
+
+  bottom: 7.45rem;
+  position: absolute;
+}

@@ -1,0 +1,120 @@
+.about__highlight {
+  &:nth-child(4) {
+    @include media('<phone') {
+      margin-top: 14rem;
+    }
+  }
+
+  &:nth-child(10) {
+    margin-bottom: 12rem;
+    margin-top: 19rem;
+  }
+}
+
+.about__highlight__wrapper {
+  position: relative;
+
+  .about__highlight:nth-child(4) & {
+    height: 104rem;
+    width: 111rem;
+
+    @include media('<phone') {
+      height: 119rem;
+      width: 100vw;
+    }
+  }
+
+  .about__highlight:nth-child(10) & {
+    height: 106rem;
+    width: 153rem;
+
+    @include media('<phone') {
+      display: flex;
+      flex-direction: column;
+      height: 316rem;
+      justify-content: space-evenly;
+      width: 100vw;
+    }
+  }
+}
+
+.about__highlight__copy__wrapper {
+  .about__highlight:nth-child(10) & {
+    @include media('<phone') {
+      position: relative;
+      top: 57rem;
+    }
+  }
+}
+
+.about__highlight__label {
+  @extend %description-12-about-label;
+  left: 50.5%;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  bottom: 91rem;
+  transform: translate(-50%, -50%);
+  width: 9.6rem;
+
+  .about__highlight:nth-child(10) & {
+    @include media('<phone') {
+      position: relative;
+      letter-spacing: 0.25rem;
+      bottom: 64rem;
+      width: 20.5rem;
+    }
+  }
+}
+
+.about__highlight__title {
+  @extend %title-200;
+  left: 50%;
+  margin: auto;
+  position: absolute;
+  text-transform: lowercase;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.about__highlight__gallery__media {
+  position: absolute;
+
+  &:first-child {
+    left: 0;
+    top: 0;
+
+    @include media('<phone') {
+      margin: 0;
+    }
+  }
+
+  &:last-child {
+    bottom: 0;
+    right: 0;
+
+    @include media('<phone') {
+      margin: 0;
+    }
+  }
+
+  .about__highlight:nth-child(4) & {
+    height: 53rem;
+    width: 36rem;
+  }
+
+  .about__highlight:nth-child(10) & {
+    height: 76rem;
+    width: 54rem;
+
+    @include media('<phone') {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.about__highlight__gallery__media__image {
+  @extend %cover;
+  object-fit: cover;
+}

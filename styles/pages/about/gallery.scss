@@ -1,0 +1,45 @@
+.about__gallery {
+  margin-bottom: 16.9rem;
+
+  &:nth-child(6) {
+    margin-top: 24rem;
+
+    @include media('<phone') {
+      margin-top: 20rem;
+    }
+  }
+
+  @include media('<phone') {
+    margin-bottom: 0;
+  }
+}
+
+.about__gallery__wrapper {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.about__gallery__media {
+  margin-top: 29.1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+
+  @include media('<phone') {
+    margin-top: 32.1rem;
+  }
+}
+
+.about__gallery__media__image {
+  height: 42rem;
+
+  @include media('<phone') {
+    height: 51rem;
+  }
+
+  &:nth-child(6) {
+    @include media('<phone') {
+      height: 60rem;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+doctype html 
+block variables
+
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, intial-scale=1.0")
+
+    base(href="/")
+    title=meta.data.title
+    meta(name="description" content=meta.data.description)
+
+    meta(property="og:type" content="website")
+    meta(property="og:title" content=meta.data.title)
+    meta(property="og:description" content=meta.data.description)
+    meta(property="og:image" content=meta.data.image ? meta.data.image.url : '')
+
+    meta(property="twitter:card" content="summary_large_image")
+    meta(property="twitter:title" content=meta.data.title)
+    meta(property="twitter:description" content=meta.data.description)
+    meta(property="twitter:image" content=meta.data.image ? meta.data.image.url : '')
+
+    link(href="main.css" rel="stylesheet")
+
+  body 
+    include ./partials/preloader
+    include ./partials/navigation
+
+    .content#content(data-template=template)
+      block content
+
+    script(src="main.js")

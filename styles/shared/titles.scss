@@ -1,0 +1,89 @@
+%title-20 {
+  font-family: $font-george-x;
+  font-size: 2rem;
+  font-weight: normal;
+
+  @include media('<phone') {
+    font-size: 4.8rem;
+  }
+}
+
+%title-30 {
+  font-family: $font-george-x;
+  font-size: 3rem;
+  font-weight: normal;
+
+  @include media('<phone') {
+    font-size: 5.2rem;
+  }
+}
+
+%title-48 {
+  font-family: $font-george-x;
+  font-size: 4.8rem;
+  font-weight: normal;
+}
+
+%title-53 {
+  font-family: $font-george-x;
+  font-size: 5.3rem;
+  font-weight: normal;
+}
+
+%title-60 {
+  font-family: $font-george-x;
+  font-size: 6rem;
+  font-weight: normal;
+}
+
+%title-100 {
+  font-family: $font-george-x;
+  font-size: 10rem;
+  font-weight: normal;
+
+  @include media('<phone') {
+    font-size: 12rem;
+  }
+}
+
+%title-120 {
+  font-family: $font-george-x;
+  font-size: 12rem;
+  font-weight: normal;
+
+  @include media('<phone') {
+    font-size: 18rem;
+  }
+}
+
+%title-200 {
+  font-family: $font-george-x;
+  font-size: 20rem;
+  font-weight: normal;
+
+  @include media('<phone') {
+    font-size: 30rem;
+  }
+}
+
+%title-120-vertical-titles {
+  font-family: $font-george-x;
+  font-size: 12rem;
+  font-weight: normal;
+
+  @include media('>phone') {
+    font-size: 20rem;
+  }
+}
+
+%title-200-vertical-titles {
+  font-family: $font-george-x;
+  font-size: 20rem;
+  font-weight: normal;
+}
+
+%title-300 {
+  font-family: $font-george-x;
+  font-size: 30rem;
+  font-weight: normal;
+}

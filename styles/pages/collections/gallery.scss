@@ -1,0 +1,21 @@
+.collections__gallery {
+  @extend %cover;
+}
+.collections__gallery__wrapper {
+  @extend %cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.collections__gallery__link {
+  z-index: 3;
+}
+.collections__gallery__media {
+  margin: 0 2.8rem;
+}
+.collections__gallery__media__image {
+  width: 44.7rem;
+  height: 63.1rem;
+  max-width: 455px;
+  max-height: 642.35px;
+}
