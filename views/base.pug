@@ -22,6 +22,8 @@ html(lang="en")
 
     link(href="main.css" rel="stylesheet")
 
+    script(async src="main.js")
+
   body 
     include ./partials/preloader
     include ./partials/navigation
@@ -29,4 +31,3 @@ html(lang="en")
     .content#content(data-template=template)
       block content
 
-    script(src="main.js")

@@ -13,7 +13,7 @@ block content
             path(stroke="currentColor" fill="none" d="M134,.5C207.73.5,267.5,29.38,267.5,65S207.73,129.5,134,129.5.5,100.62.5,65,60.27.5,134,.5Z")
 
       figure.detail__media
-        img.detail__media__image(alt=product.data.image.alt src=product.data.image.url)
+        img.detail__media__image(alt=product.data.image.alt data-src=product.data.image.url)
 
       section.detail__information
         p.detail__information__collection=`${product.data.collection.data.title} ${home.data.collection}`

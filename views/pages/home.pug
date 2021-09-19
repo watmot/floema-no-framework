@@ -10,7 +10,7 @@ block content
       .home__gallery
         each media in home.data.gallery
           figure.home__gallery__media
-            img.home__gallery__media__image(alt=media.image.alt src=media.image.url)
+            img.home__gallery__media__image(alt=media.image.alt data-src=media.image.url)
      
       .home__button__wrapper
         a.home__button(href=Link(home.data.collections))=home.data.button
