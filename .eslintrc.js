@@ -4,5 +4,6 @@ module.exports = {
   ignorePatterns: ['public/*.js'],
   rules: {
     'linebreak-style': ['error', 'windows'],
+    browser: true,
   },
 };
