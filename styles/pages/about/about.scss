@@ -1,8 +1,9 @@
 .about {
+  @extend %page;
   overflow: hidden;
-
-  background-color: $color-cadet-blue;
-  color: $color-bright-grey;
+  // background-color: $color-cadet-blue;
+  // color: $color-bright-grey;
+  opacity: 0;
   left: 0;
   margin: 0 auto;
   position: absolute;

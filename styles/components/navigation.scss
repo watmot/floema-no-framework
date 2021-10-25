@@ -1,7 +1,11 @@
 .navigation {
   @extend %cover;
-  color: $color-quarter-spanish-white;
   z-index: z('navigation');
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  height: auto;
 }
 
 .navigation__link {
@@ -9,12 +13,17 @@
   left: 4rem;
   position: absolute;
   top: 4rem;
+  transition: opacity 0.4s $ease-in-out;
   width: 12.8rem;
 
   @include media('<phone') {
     width: 27.9rem;
     height: 4.3rem;
     left: 5rem;
+  }
+
+  &:hover {
+    opacity: 0.5;
   }
 }
 
@@ -38,4 +47,5 @@
 }
 
 .navigation__list__link {
+  @extend %link--hidden;
 }

@@ -1,78 +1,91 @@
 .home {
-  @extend %cover;
-  background-color: $color-contessa;
-  color: $color-quarter-spanish-white;
+  @extend %page;
 }
 
 .home__wrapper {
   @extend %cover;
-  overflow: hidden;
 
   &:before,
   &:after {
     content: '';
-    height: 24rem;
+    height: 35rem;
     left: 0;
     position: absolute;
     width: 100%;
     z-index: 1;
-
-    @include media('<phone') {
-      height: 32.5rem;
-    }
   }
 
   &:before {
-    background: linear-gradient(
-      to bottom,
-      rgba($color-contessa, 1) 0%,
-      rgba($color-contessa, 0) 100%
-    );
+    background: linear-gradient(to bottom, $color-contessa 15%, rgba($color-contessa, 0) 100%);
     top: 0;
   }
 
   &:after {
-    background: linear-gradient(
-      to top,
-      rgba($color-contessa, 1) 0%,
-      rgba($color-contessa, 0) 100%
-    );
+    background: linear-gradient(to top, $color-contessa 15%, rgba($color-contessa, 0) 100%);
     bottom: 0;
   }
 }
 
 .home__gallery {
-  @extend %cover;
+  display: flex;
+  flex-wrap: wrap;
+  left: 50%;
+  padding: 0 2.5rem;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  visibility: hidden;
+
+  @include media('<=phone') {
+    padding: 0 1.5rem;
+  }
 }
 
 .home__gallery__media {
-  position: absolute;
+  padding: 2.5rem;
+  width: 20%;
 }
 
 .home__gallery__media__image {
-  height: 60rem;
-  width: 40rem;
+  display: block;
+  width: 100%;
 }
 
 .home__button {
+  @extend %description-14;
+
   align-items: center;
   bottom: 5rem;
   display: flex;
   height: 6rem;
   justify-content: center;
   left: 50%;
+  letter-spacing: 0.05rem;
+  pointer-events: all;
   position: absolute;
   text-transform: uppercase;
   transform: translateX(-50%);
-  width: 29rem;
+  width: 28.8rem;
   z-index: 2;
 
+  span {
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    vertical-align: middle;
+  }
+
   @include media('<phone') {
-    width: 55rem;
     height: 13rem;
+    width: 55rem;
+  }
+
+  &:hover {
+    opacity: 0.4;
   }
 }
 
 .home__button__icon {
-  position: absolute;
+  @extend %cover;
 }

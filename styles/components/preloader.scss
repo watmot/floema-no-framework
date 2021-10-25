@@ -2,8 +2,6 @@
   @extend %cover;
   @extend %center;
 
-  background-color: $color-contessa;
-  color: $color-quarter-spanish-white;
   text-align: center;
   z-index: z('preloader');
 }
@@ -14,6 +12,10 @@
   letter-spacing: -0.02rem;
   line-height: 5.3rem;
   max-width: 65.8rem;
+
+  span {
+    display: inline-block;
+  }
 }
 
 .preloader__number {

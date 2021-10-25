@@ -4,7 +4,7 @@ block variables
   - var template = 'home'
 
 block content 
-  .home 
+  .home(data-background-color=color_contessa data-color=color_quarter_spanish_white)
     .home__wrapper 
       include ../partials/verticaltitle
       .home__gallery
@@ -12,7 +12,8 @@ block content
           figure.home__gallery__media
             img.home__gallery__media__image(alt=media.image.alt data-src=media.image.url)
      
-      .home__button__wrapper
-        a.home__button(href=Link(home.data.collections))=home.data.button
-          svg.home__button__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 137")
-            path(stroke="currentColor" fill="none" d="M275,1.5c151.05,0,273.5,30,273.5,67s-122.45,67-273.5,67S1.5,105.5,1.5,68.5,124,1.5,275,1.5Z")
+      a.home__button(href=Link(home.data.collections))
+        span=home.data.button
+
+        svg.home__button__icon(xmlns="http://www.w3.org/2000/svg" viewBox="0 0 550 137")
+          path(stroke="currentColor" fill="none" d="M275,1.5c151.05,0,273.5,30,273.5,67s-122.45,67-273.5,67S1.5,105.5,1.5,68.5,124,1.5,275,1.5Z")

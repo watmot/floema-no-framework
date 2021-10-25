@@ -1,4 +1,5 @@
 import { each } from 'lodash';
+import Navigation from './components/Navigation';
 import Preloader from './components/Preloader';
 import About from './pages/About';
 import Collections from './pages/Collections';
@@ -7,15 +8,22 @@ import Home from './pages/Home';
 
 class App {
   constructor() {
-    this.createPreloader();
     this.createContent();
+    this.createPreloader();
+    this.createNavigation();
     this.createPages();
     this.addLinkListeners();
+    this.onResize();
+    this.update();
   }
 
   createPreloader() {
     this.preloader = new Preloader();
-    this.preloader.once('completed', this.onPreloaded);
+    this.preloader.once('completed', this.onPreloaded.bind(this));
+  }
+
+  createNavigation() {
+    this.navigation = new Navigation({ template: this.template });
   }
 
   createContent() {
@@ -23,7 +31,7 @@ class App {
     this.template = this.content.getAttribute('data-template');
   }
 
-  async createPages() {
+  createPages() {
     this.pages = {
       about: new About(),
       collections: new Collections(),
@@ -33,11 +41,12 @@ class App {
 
     this.page = this.pages[this.template];
     this.page.create();
-    await this.page.show();
   }
 
-  onPreloaded() {
-    console.log('Preloaded');
+  async onPreloaded() {
+    this.preloader.destroy();
+    await this.page.show();
+    await this.navigation.show();
   }
 
   async onChange(url) {
@@ -45,6 +54,7 @@ class App {
 
     if (response.status === 200) {
       // Hide the current page
+      await this.navigation.hide();
       await this.page.hide();
 
       // Create new page content from response
@@ -53,17 +63,35 @@ class App {
       div.innerHTML = html;
       const divContent = div.querySelector('.content');
       this.template = divContent.getAttribute('data-template');
+      this.navigation.onChange(this.template);
       this.content.innerHTML = divContent.innerHTML;
       this.content.setAttribute('data-template', this.template);
 
       // Create and show the new page
       this.page = this.pages[this.template];
       this.page.create();
+      this.page.createImagePreloader();
       this.addLinkListeners();
       await this.page.show();
+      await this.navigation.show();
+      this.onResize();
     } else {
       console.log(`${response.status} error.`);
     }
+  }
+
+  onResize() {
+    if (this.page && this.page.onResize) {
+      this.page.onResize();
+    }
+  }
+
+  update() {
+    if (this.page && this.page.update) {
+      this.page.update();
+    }
+
+    this.frame = requestAnimationFrame(this.update.bind(this));
   }
 
   addLinkListeners() {
@@ -79,4 +107,4 @@ class App {
   }
 }
 
-new App();
+const app = new App();

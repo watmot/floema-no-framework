@@ -1,8 +1,8 @@
 .detail {
-  @extend %cover;
   @extend %center;
-  background-color: $color-quicksand;
-  color: $color-quarter-spanish-white;
+  @extend %page;
+  // background-color: $color-quicksand;
+  // color: $color-quarter-spanish-white;
 
   @include media('<phone') {
     height: auto;

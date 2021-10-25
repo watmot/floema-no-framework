@@ -1,16 +1,12 @@
 .collections {
-  @extend %cover;
-  background-color: $color-quicksand;
-  color: $color-quarter-spanish-white;
+  @extend %page;
+  // background-color: $color-quicksand;
+  // color: $color-quarter-spanish-white;
   overflow: hidden;
 
   &:after {
     @include media('<phone') {
-      background: linear-gradient(
-        -45deg,
-        rgba($color-quicksand, 1) 0%,
-        rgba($color-quicksand, 0) 100%
-      );
+      background: linear-gradient(-45deg, rgba($color-quicksand, 1) 0%, rgba($color-quicksand, 0) 100%);
       bottom: 0;
       content: '';
       height: 50vw;

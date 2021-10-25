@@ -10,7 +10,7 @@ const Prismic = require('@prismicio/client');
 const PrismicDOM = require('prismic-dom');
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 // Initialize the prismic.io api
 const initApi = req => Prismic.getApi(process.env.PRISMIC_ENDPOINT, { req });
@@ -68,9 +68,7 @@ app.use(async (req, res, next) => {
 app.get('/', async (req, res) => {
   const api = await initApi(req);
   const home = await api.getSingle('home');
-  const { results: collections } = await api.query(
-    Prismic.Predicates.at('document.type', 'collection')
-  );
+  const { results: collections } = await api.query(Prismic.Predicates.at('document.type', 'collection'));
 
   res.render('pages/home', { ...req.defaults, home, collections });
 });
@@ -103,12 +101,9 @@ app.get('/detail/:uid', async (req, res) => {
 app.get('/collections', async (req, res) => {
   const api = await initApi(req);
   const home = await api.getSingle('home');
-  const { results: collections } = await api.query(
-    Prismic.Predicates.at('document.type', 'collection'),
-    {
-      fetchLinks: 'product.image',
-    }
-  );
+  const { results: collections } = await api.query(Prismic.Predicates.at('document.type', 'collection'), {
+    fetchLinks: 'product.image',
+  });
 
   res.render('pages/collections', {
     ...req.defaults,
