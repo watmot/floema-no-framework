@@ -12,6 +12,7 @@ class App {
     this.createPreloader();
     this.createNavigation();
     this.createPages();
+    this.addEventListeners();
     this.addLinkListeners();
     this.onResize();
     this.update();
@@ -49,6 +50,10 @@ class App {
     await this.navigation.show();
   }
 
+  onPopState() {
+    this.onChange(window.location.pathname);
+  }
+
   async onChange(url) {
     const response = await fetch(url);
 
@@ -66,6 +71,7 @@ class App {
       this.navigation.onChange(this.template);
       this.content.innerHTML = divContent.innerHTML;
       this.content.setAttribute('data-template', this.template);
+      window.history.pushState({}, '', url);
 
       // Create and show the new page
       this.page = this.pages[this.template];
@@ -92,6 +98,10 @@ class App {
     }
 
     this.frame = requestAnimationFrame(this.update.bind(this));
+  }
+
+  addEventListeners() {
+    window.addEventListener('popstate', this.onPopState.bind(this));
   }
 
   addLinkListeners() {

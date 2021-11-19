@@ -22,8 +22,6 @@ export default class Page {
     this.transformPrefix = Prefix('transform');
     this.onMouseWheel = this.onMouseWheel.bind(this);
     this.update = this.update.bind(this);
-
-    console.log(this.id);
   }
 
   create() {
@@ -39,10 +37,12 @@ export default class Page {
       } else {
         this.elements[key] = document.querySelectorAll(entry);
 
-        if (this.elements[key].length === 0) {
-          this.elements[key] = null;
-        } else if (this.elements[key].length === 1) {
-          this.elements[key] = document.querySelector(entry);
+        if (key !== 'imageSrc') {
+          if (this.elements[key].length === 0) {
+            this.elements[key] = null;
+          } else if (this.elements[key].length === 1) {
+            this.elements[key] = document.querySelector(entry);
+          }
         }
       }
     });
@@ -104,6 +104,7 @@ export default class Page {
   }
 
   hide() {
+    console.log('hiding page');
     return new Promise(resolve => {
       this.removeEventListeners();
       this.animateIn = GSAP.timeline();

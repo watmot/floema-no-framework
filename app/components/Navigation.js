@@ -53,6 +53,7 @@ export default class Navigation extends Component {
   }
 
   hide() {
+    console.log('hide nav');
     return new Promise(resolve => {
       this.animateIn = GSAP.timeline();
 

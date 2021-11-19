@@ -191,10 +191,6 @@
   &:first-child {
     margin-top: 6rem;
     margin-bottom: -4.5rem;
-
-    @include media('>phone') {
-      display: none;
-    }
   }
 
   @include media('<phone') {
