@@ -72,10 +72,19 @@ module.exports = {
           },
         ],
       },
-
       {
-        test: /\.(jpe?g|png|gif|svg|woff|woff2|webp|glsl|frag|vert)$/i,
+        test: /\.(jpe?g|png|gif|svg|woff|woff2|webp)$/i,
         type: 'asset',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(glsl|frag|vert)$/i,
+        type: 'asset/resource',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(glsl|frag|vert)$/,
+        loader: 'glslify-loader',
         exclude: /node_modules/,
       },
     ],
