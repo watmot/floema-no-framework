@@ -79,7 +79,7 @@ module.exports = {
       },
       {
         test: /\.(glsl|frag|vert)$/i,
-        type: 'asset/resource',
+        type: 'asset/source',
         exclude: /node_modules/,
       },
       {
